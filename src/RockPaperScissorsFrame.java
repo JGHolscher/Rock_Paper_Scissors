@@ -1,9 +1,14 @@
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Random;
+
+import static java.awt.Color.black;
+import static java.awt.Color.blue;
 
 public class RockPaperScissorsFrame extends JFrame
 {
@@ -12,6 +17,8 @@ public class RockPaperScissorsFrame extends JFrame
     JTextArea resaultTA;
     JLabel tLbl, cwLbl, pwLbl;
     JTextField tTF, cwTF, pwTF;
+
+    ImageIcon rock, paper, scissors, quit;
 
     int cWin = 0;
     int pWin = 0;
@@ -95,14 +102,19 @@ public class RockPaperScissorsFrame extends JFrame
 
     private void createButtonPanel() //ROCK, QUIT, ..., ...
     {
+        rock = new ImageIcon(new ImageIcon("src/rockImage.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        paper = new ImageIcon(new ImageIcon("src/paperImage.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        scissors = new ImageIcon(new ImageIcon("src/scissorsImage.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        quit = new ImageIcon(new ImageIcon("src/quitImage.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+
         btnPnl = new JPanel();
         btnPnl.setLayout(new GridLayout(1,4));
-        btnPnl.setBorder(new TitledBorder(new EtchedBorder(), "Buttons"));
+        btnPnl.setBorder(new LineBorder(black, 6 ));
 
-        rockBtn = new JButton("rock");
-        paperBtn = new JButton("paper");
-        scissorsBtn = new JButton("scissors");
-        quitBtn = new JButton("Quit");
+        rockBtn = new JButton(rock);
+        paperBtn = new JButton(paper);
+        scissorsBtn = new JButton(scissors);
+        quitBtn = new JButton(quit);
 
         btnPnl.add(rockBtn);
         btnPnl.add(paperBtn);
@@ -126,7 +138,7 @@ public class RockPaperScissorsFrame extends JFrame
                     if(newDex == 1){
                         cWin++;
                         resaultTA.append("Paper covers Rock (Computer Wins)" + cWin + "\n");
-                        cwTF.append(cWin);
+                        //cwTF.append(cWin);
                             System.out.println("c wins: " + cWin);
 
                     }
