@@ -72,7 +72,7 @@ public class RockPaperScissorsFrame extends JFrame
         btnPnl.add(paperBtn);
         btnPnl.add(scissorsBtn);
 
-        rockBtn.addActionListener(
+        rockBtn.addActionListener( // ROCK DONE
                 (ActionEvent ae) ->
                 {
                     do {
@@ -80,7 +80,6 @@ public class RockPaperScissorsFrame extends JFrame
                     }while(newDex == curCompDex);
                     curCompDex = newDex;
                     System.out.println("Your Fortune: " + newDex);
-
                     if(newDex == 0){
                         resaultTA.append("Rock ties Rock (Tie)" + "\n");
                     }
