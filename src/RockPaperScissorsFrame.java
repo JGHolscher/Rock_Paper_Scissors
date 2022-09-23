@@ -132,27 +132,81 @@ public class RockPaperScissorsFrame extends JFrame
                     if(newDex == 0){
                         tie++;
                         resaultTA.append("Rock ties Rock (Tie)" + "\n");
-                            System.out.println("tie: " + tie);
-
                     }
                     if(newDex == 1){
                         cWin++;
-                        resaultTA.append("Paper covers Rock (Computer Wins)" + cWin + "\n");
+                        resaultTA.append("Paper covers Rock (Computer Wins)" + "\n");
                         //cwTF.append(cWin);
-                            System.out.println("c wins: " + cWin);
-
                     }
                     if(newDex == 2){
                         pWin++;
                         resaultTA.append("Rock breaks Scissors (Player Wins)" + "\n");
-                            System.out.println("p wins: " + pWin);
                     }
+                    System.out.println("tie: " + tie + "   p wins: " + pWin + "  c wins: " + cWin);
                 }
         );
 
         //Paper
+        paperBtn.addActionListener( // ROCK DONE
+                (ActionEvent ae) ->
+                {
+                    do {
+                        newDex = rnd.nextInt(compOptions.length);
+                    }while(newDex == curCompDex);
+                    curCompDex = newDex;
+                    //      System.out.println("Your Fortune: " + newDex);
+                    //0-r 1-p 2-s
+                    //paper v rock0
+                    //paper v paper1
+                    //paper v scissors2
+
+                    if(newDex == 1){//paperp v paperc
+                        tie++;
+                        resaultTA.append("Paper ties paper (Tie)" + "\n");
+                    }
+                    if(newDex == 2){//paperp v scissorsc
+                        cWin++;
+                        resaultTA.append("Scissors cut paper (Computer Wins)" + "\n");
+                        //cwTF.append(cWin);
+                    }
+                    if(newDex == 0){//paperp v rockc
+                        pWin++;
+                        resaultTA.append("Paper covers Rock (Player Wins)" + "\n");
+                    }
+                    System.out.println("tie: " + tie + "   p wins: " + pWin + "  c wins: " + cWin);
+                }
+        );
 
         //Scissors
+        scissorsBtn.addActionListener( // ROCK DONE
+                (ActionEvent ae) ->
+                {
+                    do {
+                        newDex = rnd.nextInt(compOptions.length);
+                    }while(newDex == curCompDex);
+                    curCompDex = newDex;
+                    //      System.out.println("Your Fortune: " + newDex);
+                    //0-r 1-p 2-s
+                    //s v rock0 cw
+                    //s v paper1 pw
+                    //s v scissors2 tie
+
+                    if(newDex == 2){//s v scissorsc
+                        tie++;
+                        resaultTA.append("Scissors ties Scissors (Tie)" + "\n");
+                    }
+                    if(newDex == 0){//s v rockc
+                        cWin++;
+                        resaultTA.append("Rock break Scissors (Computer Wins)" + "\n");
+                        //cwTF.append(cWin);
+                    }
+                    if(newDex == 1){//s v paperc
+                        pWin++;
+                        resaultTA.append("Scissors cut paper (Player Wins)" + "\n");
+                    }
+                    System.out.println("tie: " + tie + "   p wins: " + pWin + "  c wins: " + cWin);
+                }
+        );
 
 
         quitBtn.addActionListener((ActionEvent ae) -> System.exit(0));//QUIT DONE
