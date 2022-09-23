@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Random;
@@ -54,9 +56,10 @@ public class RockPaperScissorsFrame extends JFrame
     private void createStatsPanel()
     {
       statsPnl  = new JPanel();
+      //statsPnl.setLayout(new GridLayout(3,1));
 
 
-      cwLbl = new JLabel("# Computer Wins: ");
+      cwLbl = new JLabel("# Computer Wins: " );
       cwTF = new JTextField(8);
 
       pwLbl = new JLabel("# Player Wins: ");
@@ -94,6 +97,7 @@ public class RockPaperScissorsFrame extends JFrame
     {
         btnPnl = new JPanel();
         btnPnl.setLayout(new GridLayout(1,4));
+        btnPnl.setBorder(new TitledBorder(new EtchedBorder(), "Buttons"));
 
         rockBtn = new JButton("rock");
         paperBtn = new JButton("paper");
@@ -122,7 +126,7 @@ public class RockPaperScissorsFrame extends JFrame
                     if(newDex == 1){
                         cWin++;
                         resaultTA.append("Paper covers Rock (Computer Wins)" + cWin + "\n");
-                        cwTF
+                        cwTF.append(cWin);
                             System.out.println("c wins: " + cWin);
 
                     }
