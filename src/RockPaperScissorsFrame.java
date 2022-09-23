@@ -117,7 +117,7 @@ public class RockPaperScissorsFrame extends JFrame
                     if(newDex == 0){
                         resaultTA.append("Rock ties Rock (Tie)" + "\n");
                         tie++;
-                        cwTF.add(tie);
+                        //cwTF.add(tie);
                             System.out.println("tie: " + tie);
 
                     }
