@@ -144,7 +144,6 @@ public class RockPaperScissorsFrame extends JFrame
                     if(newDex == 1){
                         cWin++;
                         resaultTA.append("Paper covers Rock (Computer Wins)" + "\n" + "\n");
-                        cwTA.setText("# of Computer Wins" + cWin);
                     }
                     if(newDex == 2){
                         pWin++;
