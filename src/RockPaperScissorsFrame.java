@@ -8,13 +8,13 @@ import java.awt.event.ActionEvent;
 import java.util.Random;
 
 import static java.awt.Color.black;
-import static java.awt.Color.blue;
+
 
 public class RockPaperScissorsFrame extends JFrame
 {
     JPanel mainPnl, statsPnl, displayPnl, btnPnl;
     JButton quitBtn, rockBtn, paperBtn, scissorsBtn;
-    JTextArea resaultTA;
+    JTextArea resaultTA, cwTA;
     JLabel tLbl, cwLbl, pwLbl;
     JTextField tTF, cwTF, pwTF;
 
@@ -65,15 +65,15 @@ public class RockPaperScissorsFrame extends JFrame
       statsPnl  = new JPanel();
       //statsPnl.setLayout(new GridLayout(3,1));
 
+      cwLbl = new JLabel("# Computer Wins: ");
+      cwTF = new JTextField( " " + cWin + " ",8);
 
-      cwLbl = new JLabel("# Computer Wins: " );
-      cwTF = new JTextField(8);
 
       pwLbl = new JLabel("# Player Wins: ");
-      pwTF = new JTextField(8);
+      pwTF = new JTextField( " " + pWin + " ",8);
 
       tLbl = new JLabel("# of Ties: ");
-      tTF = new JTextField(8);
+      tTF = new JTextField( " " + tie + " ",8);
 
 
       statsPnl.add(cwLbl);
@@ -132,17 +132,21 @@ public class RockPaperScissorsFrame extends JFrame
                     if(newDex == 0){
                         tie++;
                         resaultTA.append("Rock ties Rock (Tie)" + "\n");
+
                     }
                     if(newDex == 1){
                         cWin++;
                         resaultTA.append("Paper covers Rock (Computer Wins)" + "\n");
-                        //cwTF.append(cWin);
+                        cwTA.setText("# of Computer Wins" + cWin);
                     }
                     if(newDex == 2){
                         pWin++;
                         resaultTA.append("Rock breaks Scissors (Player Wins)" + "\n");
                     }
                     System.out.println("tie: " + tie + "   p wins: " + pWin + "  c wins: " + cWin);
+                    pwTF.setText(" " + pWin + " ");
+                    cwTF.setText(" " + cWin + " ");
+                    tTF.setText(" " + tie + " ");
                 }
         );
 
@@ -174,6 +178,9 @@ public class RockPaperScissorsFrame extends JFrame
                         resaultTA.append("Paper covers Rock (Player Wins)" + "\n");
                     }
                     System.out.println("tie: " + tie + "   p wins: " + pWin + "  c wins: " + cWin);
+                    pwTF.setText(" " + pWin + " ");
+                    cwTF.setText(" " + cWin + " ");
+                    tTF.setText(" " + tie + " ");
                 }
         );
 
@@ -198,19 +205,20 @@ public class RockPaperScissorsFrame extends JFrame
                     if(newDex == 0){//s v rockc
                         cWin++;
                         resaultTA.append("Rock break Scissors (Computer Wins)" + "\n");
-                        //cwTF.append(cWin);
+
                     }
                     if(newDex == 1){//s v paperc
                         pWin++;
                         resaultTA.append("Scissors cut paper (Player Wins)" + "\n");
                     }
                     System.out.println("tie: " + tie + "   p wins: " + pWin + "  c wins: " + cWin);
+                    pwTF.setText(" " + pWin + " ");
+                    cwTF.setText(" " + cWin + " ");
+                    tTF.setText(" " + tie + " ");
                 }
         );
 
-
         quitBtn.addActionListener((ActionEvent ae) -> System.exit(0));//QUIT DONE
-
 
         mainPnl.add(BorderLayout.SOUTH, btnPnl);
     }
