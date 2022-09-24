@@ -65,15 +65,21 @@ public class RockPaperScissorsFrame extends JFrame
       statsPnl  = new JPanel();
       //statsPnl.setLayout(new GridLayout(3,1));
 
-      cwLbl = new JLabel("# Computer Wins: ");
-      cwTF = new JTextField( " " + cWin + " ",8);
+      cwLbl = new JLabel("# Computer Wins:");
+      cwTF = new JTextField( " " + cWin + " ",3);
+        cwLbl.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+        cwTF.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
 
 
-      pwLbl = new JLabel("# Player Wins: ");
-      pwTF = new JTextField( " " + pWin + " ",8);
+      pwLbl = new JLabel("# Player Wins:");
+      pwTF = new JTextField( " " + pWin + " ",3);
+        pwLbl.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+        pwTF.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
 
-      tLbl = new JLabel("# of Ties: ");
-      tTF = new JTextField( " " + tie + " ",8);
+      tLbl = new JLabel("# of Ties:");
+      tTF = new JTextField( " " + tie + " ",3);
+        tLbl.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+        tTF.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
 
 
       statsPnl.add(cwLbl);
@@ -92,15 +98,16 @@ public class RockPaperScissorsFrame extends JFrame
     {
         displayPnl = new JPanel();
 
-        resaultTA =  new JTextArea(12, 70);
+        resaultTA =  new JTextArea(12, 30);
         scroller = new JScrollPane(resaultTA);
+        resaultTA.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 
         displayPnl.add(scroller);
         mainPnl.add(displayPnl, BorderLayout.CENTER);
     }
 
 
-    private void createButtonPanel() //ROCK, QUIT, ..., ...
+    private void createButtonPanel() //ROCK, QUIT, SCISSORS, PAPER
     {
         rock = new ImageIcon(new ImageIcon("src/rockImage.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         paper = new ImageIcon(new ImageIcon("src/paperImage.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
@@ -131,17 +138,17 @@ public class RockPaperScissorsFrame extends JFrame
                     //      System.out.println("Your Fortune: " + newDex);
                     if(newDex == 0){
                         tie++;
-                        resaultTA.append("Rock ties Rock (Tie)" + "\n");
+                        resaultTA.append("Rock ties Rock (Tie)" + "\n" + "\n");
 
                     }
                     if(newDex == 1){
                         cWin++;
-                        resaultTA.append("Paper covers Rock (Computer Wins)" + "\n");
+                        resaultTA.append("Paper covers Rock (Computer Wins)" + "\n" + "\n");
                         cwTA.setText("# of Computer Wins" + cWin);
                     }
                     if(newDex == 2){
                         pWin++;
-                        resaultTA.append("Rock breaks Scissors (Player Wins)" + "\n");
+                        resaultTA.append("Rock breaks Scissors (Player Wins)" + "\n" + "\n");
                     }
                     System.out.println("tie: " + tie + "   p wins: " + pWin + "  c wins: " + cWin);
                     pwTF.setText(" " + pWin + " ");
@@ -166,16 +173,16 @@ public class RockPaperScissorsFrame extends JFrame
 
                     if(newDex == 1){//paperp v paperc
                         tie++;
-                        resaultTA.append("Paper ties paper (Tie)" + "\n");
+                        resaultTA.append("Paper ties paper (Tie)" + "\n" + "\n");
                     }
                     if(newDex == 2){//paperp v scissorsc
                         cWin++;
-                        resaultTA.append("Scissors cut paper (Computer Wins)" + "\n");
+                        resaultTA.append("Scissors cut paper (Computer Wins)" + "\n" + "\n");
                         //cwTF.append(cWin);
                     }
                     if(newDex == 0){//paperp v rockc
                         pWin++;
-                        resaultTA.append("Paper covers Rock (Player Wins)" + "\n");
+                        resaultTA.append("Paper covers Rock (Player Wins)" + "\n" + "\n");
                     }
                     System.out.println("tie: " + tie + "   p wins: " + pWin + "  c wins: " + cWin);
                     pwTF.setText(" " + pWin + " ");
@@ -200,16 +207,16 @@ public class RockPaperScissorsFrame extends JFrame
 
                     if(newDex == 2){//s v scissorsc
                         tie++;
-                        resaultTA.append("Scissors ties Scissors (Tie)" + "\n");
+                        resaultTA.append("Scissors ties Scissors (Tie)" + "\n" + "\n");
                     }
                     if(newDex == 0){//s v rockc
                         cWin++;
-                        resaultTA.append("Rock break Scissors (Computer Wins)" + "\n");
+                        resaultTA.append("Rock break Scissors (Computer Wins)" + "\n" + "\n");
 
                     }
                     if(newDex == 1){//s v paperc
                         pWin++;
-                        resaultTA.append("Scissors cut paper (Player Wins)" + "\n");
+                        resaultTA.append("Scissors cut paper (Player Wins)" + "\n" + "\n");
                     }
                     System.out.println("tie: " + tie + "   p wins: " + pWin + "  c wins: " + cWin);
                     pwTF.setText(" " + pWin + " ");
